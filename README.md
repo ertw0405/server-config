@@ -43,6 +43,11 @@ net.ipv4.tcp_tw_reuse = 1
 net.ipv4.ip_local_port_range = 10240 65535
 ```
 
+* Set server localtime to HKT (or other location as wish)
+```
+sudo cp /usr/share/zoneinfo/Hongkong /etc/localtime
+```
+
 * Create application-specific users and assign random password for security purpose. These users will then be accessed by `sudo su - xxx`
 ```
 useradd -d /home/xxx -m xxx
