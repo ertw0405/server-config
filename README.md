@@ -7,7 +7,7 @@ Typical linux server config (CentOS 6.x)
 *    - nofile 65536
 ```
 
-2) Change SELinux to from `enforcing` to `permissive` in `/etc/selinux/config` (Note: this lower the security but much eaiser to sysadmin)
+* Change SELinux to from `enforcing` to `permissive` in `/etc/selinux/config` (Note: this lower the security but much eaiser to sysadmin)
 ```
 SELINUX=permissive
 ```
