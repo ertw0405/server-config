@@ -59,3 +59,18 @@ usermod -g yyy xxx (for each user)
 sudo su - xxx (for each user)
 vi ~/.bashrc add 'umask 002'
 ```
+
+* For user who need to login, use SSH with private key (must!) and disable password prompt
+```
+sudo su - zzz
+ssh-keygen -t rsa -b 2048
+name of key: key_zzz
+
+mkdir .ssh
+touch .ssh/authorized_keys
+cat key_zzz.pub >> .ssh/authorized_keys
+chmod 700 .ssh
+chmod 0640 .ssh/authorized_keys
+rm key_zzz.pub
+```
+
