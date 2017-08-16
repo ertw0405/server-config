@@ -12,7 +12,7 @@ Typical linux server config (CentOS 6.x)
 SELINUX=permissive
 ```
 
-* Max out the network I/O by adding the following to `/etc/sysctl.conf`
+* Max out the network I/O by adding the following to `/etc/sysctl.conf` the run `sysctl -p /etc/sysctl.conf` to update the settings
 ```
 # Increase system IP port limits to allow for more connections
 net.ipv4.ip_local_port_range = 2000 65000
