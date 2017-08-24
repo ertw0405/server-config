@@ -48,11 +48,11 @@ net.ipv4.ip_local_port_range = 10240 65535
 sudo cp /usr/share/zoneinfo/Hongkong /etc/localtime
 ```
 
-* Flush PageCache once awhile to free up server memory
+* Flush PageCache once awhile to free up server memory (added into /etc/cron.d/server)
 ```
-sync; echo 1 > /proc/sys/vm/drop_caches
+# Clear PageCache every 4 hours
+0 */4 * * * root 'sync; echo 1 > /proc/sys/vm/drop_caches'
 ```
-Measure flush PageCache by Cronjob
 
 * Create application-specific users and assign random password for security purpose. These users will then be accessed by `sudo su - xxx`
 ```
