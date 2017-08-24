@@ -51,7 +51,7 @@ sudo cp /usr/share/zoneinfo/Hongkong /etc/localtime
 * Flush PageCache once awhile to free up server memory (added into /etc/cron.d/server)
 ```
 # Clear PageCache every 4 hours
-0 0 0,4,8,12,16,20 * * * root 'sync; echo 1 > /proc/sys/vm/drop_caches'
+55 23,3,7,11,15,19 * * * root 'sync; echo 1 > /proc/sys/vm/drop_caches'
 ```
 
 * Create application-specific users and assign random password for security purpose. These users will then be accessed by `sudo su - xxx`
