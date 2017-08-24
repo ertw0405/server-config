@@ -49,9 +49,16 @@ sudo cp /usr/share/zoneinfo/Hongkong /etc/localtime
 ```
 
 * Flush PageCache once awhile to free up server memory (added into /etc/cron.d/server)
+Create a shellscript file
+```
+#!/bin/bash
+
+sync; echo 1 > /proc/sys/vm/drop_caches
+```
+To setup cronjob
 ```
 # Clear PageCache every 4 hours
-55 23,3,7,11,15,19 * * * root 'sync; echo 1 > /proc/sys/vm/drop_caches'
+55 23,3,7,11,15,19 * * * root /bin/bash _path_to_shellscript_file
 ```
 
 * Create application-specific users and assign random password for security purpose. These users will then be accessed by `sudo su - xxx`
