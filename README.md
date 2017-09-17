@@ -1,7 +1,7 @@
 # server-config
 Typical linux server config (CentOS 6.x)
 
-* Max out the file I/O by adding the following to `/etc/security/limit.conf`
+* Max out the file I/O by adding the following to `/etc/security/limits.conf`
 
 ```
 *    - nofile 65536
