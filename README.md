@@ -15,7 +15,7 @@ SELINUX=permissive
 * Max out the network I/O by adding the following to `/etc/sysctl.conf` the run `sysctl -p /etc/sysctl.conf` to update the settings
 ```
 # Increase system IP port limits to allow for more connections
-net.ipv4.ip_local_port_range = 2000 65000
+# net.ipv4.ip_local_port_range = 2000 65000
 net.ipv4.tcp_window_scaling = 1
 
 # Increase File I/O
