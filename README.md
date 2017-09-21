@@ -4,7 +4,7 @@ Typical linux server config (CentOS 6.x)
 * Max out the file I/O by adding the following to `/etc/security/limits.conf`
 
 ```
-*    - nofile 65536
+*    - nofile 262144
 ```
 
 * Change SELinux to from `enforcing` to `permissive` in `/etc/selinux/config` (Note: this lower the security but much eaiser to sysadmin)
@@ -19,7 +19,7 @@ net.ipv4.ip_local_port_range = 2000 65000
 net.ipv4.tcp_window_scaling = 1
 
 # Increase File I/O
-fs.file-max=65536
+fs.file-max=262144
 
 # number of packets to keep in backlog before the kernel starts dropping them
 net.ipv4.tcp_max_syn_backlog = 3240000
