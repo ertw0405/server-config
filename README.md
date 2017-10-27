@@ -1,10 +1,12 @@
 # server-config
 Typical linux server config (CentOS 6.x)
 
-* Max out the file I/O by adding the following to `/etc/security/limits.conf`
+* Max out the file I/O and user process by adding the following to `/etc/security/limits.conf`
 
 ```
-*    - nofile 262144
+*                  -       nofile          292144
+username           soft    nproc           16384
+username           hard    nproc           16384
 ```
 
 * Change SELinux to from `enforcing` to `permissive` in `/etc/selinux/config` (Note: this lower the security but much eaiser to sysadmin)
