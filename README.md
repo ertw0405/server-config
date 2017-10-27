@@ -45,7 +45,17 @@ net.ipv4.ip_local_port_range = 10240 65535
 
 * Set server localtime to HKT (or other location as wish)
 ```
-sudo cp /usr/share/zoneinfo/Hongkong /etc/localtime
+sudo vi /etc/sysconfig/clock
+```
+```
+ZONE="Asia/Hong_Kong"
+UTC=false
+ARC=false
+```
+```
+sudo rm -rf /etc/localtime; 
+sudo ln -s /usr/share/zoneinfo/Asia/Hong_Kong /etc/localtime; 
+sudo hwclock --systohc --localtime
 ```
 
 * Flush PageCache once awhile to free up server memory (added into /etc/cron.d/server)
