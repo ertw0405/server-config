@@ -58,17 +58,20 @@ sudo ln -s /usr/share/zoneinfo/Asia/Hong_Kong /etc/localtime;
 sudo hwclock --systohc --localtime
 ```
 
-* Flush PageCache once awhile to free up server memory (added into /etc/cron.d/server)
+* Flush PageCache once 80% of memory are allocated (added into /etc/cron.d/server)
 Create a shellscript file
 ```
 #!/bin/bash
-
-sync; echo 1 > /proc/sys/vm/drop_caches
+mem=$(free -m | awk 'NR==2{printf "%d", $3*100/$2 }')
+if [ $mem -gt 80 ]
+then
+  sync; echo 1 > /proc/sys/vm/drop_caches
+fi
 ```
 To setup cronjob
 ```
-# Clear PageCache every 4 hours
-55 23,3,7,11,15,19 * * * root /bin/bash _path_to_shellscript_file
+# Check free memory for every minute
+*/1 * * * * root /bin/bash _path_to_shellscript_file
 ```
 
 * Create application-specific users and assign random password for security purpose. These users will then be accessed by `sudo su - xxx`
