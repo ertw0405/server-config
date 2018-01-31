@@ -45,7 +45,7 @@ net.ipv4.tcp_tw_reuse = 1
 net.ipv4.ip_local_port_range = 10240 65535
 ```
 
-* Set server localtime to HKT (or other location as wish)
+* Set server localtime to HKT (or other location as wish) and enable NTPd
 ```
 sudo vi /etc/sysconfig/clock
 ```
@@ -57,7 +57,10 @@ ARC=false
 ```
 sudo rm -rf /etc/localtime; 
 sudo ln -s /usr/share/zoneinfo/Asia/Hong_Kong /etc/localtime; 
-sudo hwclock --systohc --localtime
+sudo hwclock --systohc --localtime;
+sudo service ntpd restart;
+sudo chkconfig ntpd on;
+
 ```
 
 * Flush PageCache once 80% of memory are allocated (added into /etc/cron.d/server)
