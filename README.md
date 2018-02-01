@@ -43,6 +43,9 @@ net.ipv4.tcp_congestion_control = cubic
 net.ipv4.tcp_tw_recycle = 1
 net.ipv4.tcp_tw_reuse = 1
 net.ipv4.ip_local_port_range = 10240 65535
+
+# Set swappiness to 0 to avoid swapping
+vm.swappiness = 0
 ```
 
 * Set server localtime to HKT (or other location as wish) and enable NTPd
